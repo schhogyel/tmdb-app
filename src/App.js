@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import withRoot from "./withRoot";
 
-function App() {
+import MovieBrowser from "./pages/MovieBrowser";
+
+const styles = theme => ({
+  "@global": {
+    body: {
+      backgroundColor: "rgb(7, 32, 39)"
+    }
+  },
+  root: {
+    textAlign: "center"
+  }
+});
+
+function App(props) {
+  const { classes } = props;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <MovieBrowser />
     </div>
   );
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withRoot(withStyles(styles)(App));
