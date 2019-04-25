@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import { formatYear, convertToPercent, convertMinToHourMin } from "../utils";
 
 const styles = theme => ({
   cardContainer: {
@@ -14,17 +15,25 @@ const styles = theme => ({
     marginTop: "-12%",
     maxWidth: 345,
     width: "30%",
-    flex: "1"
+    flex: "1",
+    minWidth: "150px"
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: "cover"
   },
   title: {
-    color: "#E3F4FC"
+    fontFamily: "'Montserrat', sans-serif",
+    color: "#E3F4FC",
+    fontWeight: "600",
+    fontSize: "2.5rem",
+    textAlign: "left"
   },
   movieInfo: {
     color: "#B8D8E6"
+  },
+  infoContainer: {
+    paddingLeft: "40px"
   }
 });
 
@@ -32,7 +41,7 @@ function MovieDetailsCard(props) {
   const { classes, title, year, score, image, duration } = props;
   return (
     <div className={classes.cardContainer}>
-      <Card className={classes.card}>
+      <Card className={classes.card} raised>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -43,7 +52,7 @@ function MovieDetailsCard(props) {
           />
         </CardActionArea>
       </Card>
-      <div>
+      <div class={classes.infoContainer}>
         <Typography
           className={classes.title}
           gutterBottom
@@ -52,8 +61,16 @@ function MovieDetailsCard(props) {
         >
           {title}
         </Typography>
-        <Typography className={classes.movieInfo} component="p">
-          {year} {score} {duration}
+        <Typography
+          className={classes.movieInfo}
+          component="p"
+          align="left"
+          gutterBottom
+        >
+          {formatYear(year)} &nbsp; &#8226;&nbsp; {convertToPercent(score)}{" "}
+          &nbsp;User Score
+          <br />
+          {convertMinToHourMin(duration)}
         </Typography>
       </div>
     </div>

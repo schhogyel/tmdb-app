@@ -25,12 +25,17 @@ const styles = theme => ({
     left: 0,
     width: "2.5rem",
     height: "2.5rem",
-    color: "#fff"
+    color: "#fff",
+    marginLeft: "20px",
+    marginTop: "25px"
   },
   detailsContainer: {
     maxWidth: "1200px",
     margin: "auto",
-    padding: "10px"
+    padding: "10px",
+    [theme.breakpoints.up("sm")]: {
+      padding: "20px"
+    }
   },
   overviewDescription: {
     color: "#B8D8E6",
