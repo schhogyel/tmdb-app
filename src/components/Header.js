@@ -15,10 +15,22 @@ const styles = theme => ({
     backgroundColor: "rgb(7, 32, 39)",
     boxShadow: "none"
   },
+  appLogo: {
+    width: "66px",
+    height: "59px",
+    [theme.breakpoints.up("sm")]: {
+      width: "130px",
+      height: "116px"
+    }
+  },
+
   logo: {
     backgroundImage: `url(${backgroundImage}) , radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%)`,
     backgroundSize: "cover",
-    padding: "60px 0"
+    padding: "64px 0",
+    [theme.breakpoints.up("md")]: {
+      padding: "60px 0"
+    }
   },
   toolbar: {
     display: "flex",
@@ -28,15 +40,10 @@ const styles = theme => ({
     position: "relative",
     borderRadius: "28px",
     backgroundColor: theme.palette.common.white,
-    marginRight: theme.spacing.unit * 2,
-    marginLeft: 0,
-    width: "680px",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing.unit * 3
-    }
+    width: "680px"
   },
   searchIconContainer: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 6,
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
@@ -45,17 +52,27 @@ const styles = theme => ({
     justifyContent: "center",
     color: theme.palette.primary.main,
     right: 0,
-    top: 0
+    top: 0,
+    [theme.breakpoints.up("md")]: {
+      width: theme.spacing.unit * 9
+    }
   },
   searchIcon: {
-    width: "42px",
-    height: "42px"
+    width: "24px",
+    height: "24px",
+    [theme.breakpoints.up("md")]: {
+      width: "42px",
+      height: "42px"
+    }
   },
   inputRoot: {
-    fontSize: "1.5rem",
+    fontSize: "0.875rem",
     width: "100%",
     "&:placeholder": {
       color: theme.palette.primary.main
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.5rem"
     }
   },
   inputInput: {
@@ -84,13 +101,7 @@ function Header(props) {
       <div className={classes.logo}>
         <Link to={"/"}>
           {" "}
-          <img
-            src={logo}
-            className="App-logo"
-            alt="logo"
-            width="130"
-            height="116"
-          />
+          <img src={logo} className={classes.appLogo} alt="logo" />
         </Link>
       </div>
       <Toolbar className={classes.toolbar}>

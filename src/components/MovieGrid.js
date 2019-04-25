@@ -27,7 +27,7 @@ const styles = theme => ({
   gridTitle: {
     fontFamily: "'Montserrat', sans- serif",
     color: "#E3F4FC",
-    fontSize: "1.5rem",
+    fontSize: "1.25rem",
     fontWeight: "600",
     lineHeight: "1.4",
     padding: "10px 0",
@@ -39,11 +39,18 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0`
   },
   badge: {
-    padding: "15px",
-    fontSize: "1.1rem",
-    right: "90%",
-    top: "4%",
-    transform: "translate(100%, 0%)"
+    padding: "10px",
+    fontSize: "0.75rem",
+    right: "96%",
+    top: "2%",
+    fontWeight: "600",
+    transform: "translate(100%, 0%)",
+    [theme.breakpoints.up("sm")]: {
+      padding: "15px",
+      fontSize: "1.1rem",
+      right: "90%",
+      top: "4%"
+    }
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -52,9 +59,18 @@ const styles = theme => ({
   title: {
     color: "#E6F7FF",
     paddingTop: "10px",
-    fontSize: "1.15rem"
+    fontSize: "0.875rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1.15rem"
+    }
   },
-  yearText: { color: "#A1D1E6", fontSize: "1rem" }
+  yearText: {
+    color: "#A1D1E6",
+    fontSize: "0.75rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1rem"
+    }
+  }
 });
 
 function MovieGrid({ classes, title, movieList }) {

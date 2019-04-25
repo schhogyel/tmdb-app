@@ -15,7 +15,7 @@ const styles = theme => ({
     paddingBottom: "100px"
   },
   heroImage: {
-    maxHeight: "300px",
+    maxHeight: "245px",
     overflow: "hidden",
     display: "flex"
   },
@@ -45,7 +45,7 @@ const styles = theme => ({
     fontFamily: "'Montserrat', sans-serif",
     color: "#E3F4FC",
     fontWeight: "600",
-    fontSize: "1.5rem",
+    fontSize: "1.25rem",
     padding: "20px 0",
     borderTop: "1px solid #0F303D",
     [theme.breakpoints.up("md")]: {
@@ -56,7 +56,7 @@ const styles = theme => ({
   overviewDescription: {
     color: "#B8D8E6",
     textAlign: "left",
-    fontSize: "1.2rem"
+    fontSize: "1rem"
   }
 });
 

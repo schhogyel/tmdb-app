@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 
-const styles = {
+const styles = theme => ({
   title: {
     color: "#E6F7FF",
     paddingTop: "10px",
@@ -15,9 +15,13 @@ const styles = {
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: "cover",
-    height: "100%"
+    minheight: "233px",
+    minWidth: "155px",
+    [theme.breakpoints.up("sm")]: {
+      height: "100%"
+    }
   }
-};
+});
 
 function MovieCard(props) {
   const { classes } = props;
@@ -29,7 +33,6 @@ function MovieCard(props) {
             component="img"
             alt={props.title}
             className={classes.media}
-            height="140"
             image={`https://image.tmdb.org/t/p/w500/${props.source}`}
             title={props.title}
           />

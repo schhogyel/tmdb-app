@@ -19,7 +19,9 @@ const styles = theme => ({
     }
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 4}px 0`
+    [theme.breakpoints.up("md")]: {
+      padding: `${theme.spacing.unit * 4}px 0`
+    }
   }
 });
 

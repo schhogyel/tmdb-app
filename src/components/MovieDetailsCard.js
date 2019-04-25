@@ -17,7 +17,7 @@ const styles = theme => ({
     maxWidth: 345,
     width: "30%",
     flex: "1",
-    minWidth: "150px",
+    minWidth: "140px",
     [theme.breakpoints.up("sm")]: {
       marginTop: "-130px"
     },
@@ -33,15 +33,16 @@ const styles = theme => ({
     fontFamily: "'Montserrat', sans-serif",
     color: "#E3F4FC",
     fontWeight: "600",
-    fontSize: "1.5rem",
+    fontSize: "1.75rem",
     textAlign: "left",
+    lineHeight: "1.2",
     [theme.breakpoints.up("md")]: {
       fontSize: "2.5rem"
     }
   },
   movieInfo: {
     color: "#B8D8E6",
-    fontSize: "1rem",
+    fontSize: "0.75rem",
     [theme.breakpoints.up("md")]: {
       fontSize: "1.1rem"
     }
