@@ -11,6 +11,7 @@ import MovieCard from "../components/MovieCard";
 import Header from "../components/Header.js";
 import { getRatingColor } from "../utils";
 import { convertToPercent } from "../utils";
+import { Link } from "@reach/router";
 
 const styles = theme => ({
   appBar: {
@@ -63,19 +64,22 @@ function MovieBrowser(props) {
           <Grid container spacing={40}>
             {popularMovies.map(movie => (
               <Grid item key={movie.id} xs={6} sm={6} md={4} lg={3}>
-                <Badge
-                  badgeContent={convertToPercent(movie.vote_average)}
-                  color={getRatingColor(movie.vote_average)}
-                  classes={{ badge: classes.badge }}
-                  component={"div"}
-                >
-                  <MovieCard
-                    source={movie.poster_path}
-                    title={movie.title}
-                    releaseDate={movie.release_date}
-                    vote={movie.vote_average}
-                  />
-                </Badge>
+                <Link to={`/details/${movie.id}`}>
+                  <Badge
+                    badgeContent={convertToPercent(movie.vote_average)}
+                    color={getRatingColor(movie.vote_average)}
+                    classes={{ badge: classes.badge }}
+                    component={"div"}
+                  >
+                    <MovieCard
+                      id={movie.id}
+                      source={movie.poster_path}
+                      title={movie.title}
+                      releaseDate={movie.release_date}
+                      vote={movie.vote_average}
+                    />
+                  </Badge>
+                </Link>
               </Grid>
             ))}
           </Grid>

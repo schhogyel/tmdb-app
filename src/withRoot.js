@@ -16,7 +16,8 @@ const theme = createMuiTheme({
     },
     error: {
       main: "#D1225B"
-    }
+    },
+    titleText: "#E3F4FC"
   },
   typography: {
     useNextVariants: true

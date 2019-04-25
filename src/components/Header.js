@@ -50,7 +50,6 @@ const styles = theme => ({
     height: "42px"
   },
   inputRoot: {
-    color: "inherit",
     fontSize: "1.5rem",
     width: "100%",
     "&:placeholder": {
