@@ -29,6 +29,8 @@ const styles = theme => ({
     color: "#E3F4FC",
     fontSize: "1.5rem",
     fontWeight: "600",
+    lineHeight: "1.4",
+    padding: "10px 0",
     [theme.breakpoints.up("sm")]: {
       fontSize: "2.5rem"
     }

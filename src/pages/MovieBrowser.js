@@ -19,7 +19,7 @@ const styles = theme => ({
     }
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`
+    padding: `${theme.spacing.unit * 4}px 0`
   }
 });
 

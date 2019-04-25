@@ -9,14 +9,21 @@ import { formatYear, convertToPercent, convertMinToHourMin } from "../utils";
 
 const styles = theme => ({
   cardContainer: {
-    display: "flex"
+    display: "flex",
+    paddingBottom: "40px"
   },
   card: {
-    marginTop: "-12%",
+    marginTop: "-80px",
     maxWidth: 345,
     width: "30%",
     flex: "1",
-    minWidth: "150px"
+    minWidth: "150px",
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "-130px"
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "-160px"
+    }
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
@@ -26,14 +33,24 @@ const styles = theme => ({
     fontFamily: "'Montserrat', sans-serif",
     color: "#E3F4FC",
     fontWeight: "600",
-    fontSize: "2.5rem",
-    textAlign: "left"
+    fontSize: "1.5rem",
+    textAlign: "left",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2.5rem"
+    }
   },
   movieInfo: {
-    color: "#B8D8E6"
+    color: "#B8D8E6",
+    fontSize: "1rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.1rem"
+    }
   },
   infoContainer: {
-    paddingLeft: "40px"
+    paddingLeft: "20px",
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: "40px"
+    }
   }
 });
 
@@ -52,7 +69,7 @@ function MovieDetailsCard(props) {
           />
         </CardActionArea>
       </Card>
-      <div class={classes.infoContainer}>
+      <div className={classes.infoContainer}>
         <Typography
           className={classes.title}
           gutterBottom

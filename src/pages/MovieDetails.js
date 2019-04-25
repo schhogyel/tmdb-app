@@ -11,6 +11,9 @@ import Typography from "@material-ui/core/Typography";
 import { fetchMovie } from "../api";
 
 const styles = theme => ({
+  mainContainer: {
+    paddingBottom: "100px"
+  },
   heroImage: {
     maxHeight: "300px",
     overflow: "hidden",
@@ -32,21 +35,28 @@ const styles = theme => ({
   detailsContainer: {
     maxWidth: "1200px",
     margin: "auto",
-    padding: "10px",
+    padding: "20px",
     [theme.breakpoints.up("sm")]: {
-      padding: "20px"
+      padding: "40px"
     }
   },
+  overviewContainer: {},
   overviewTitle: {
     fontFamily: "'Montserrat', sans-serif",
     color: "#E3F4FC",
     fontWeight: "600",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
+    padding: "20px 0",
+    borderTop: "1px solid #0F303D",
+    [theme.breakpoints.up("md")]: {
+      padding: "40px 0",
+      fontSize: "2.5rem"
+    }
   },
   overviewDescription: {
-    fontFmaily: "'Roboto', sans-serif",
     color: "#B8D8E6",
-    textAlign: "left"
+    textAlign: "left",
+    fontSize: "1.2rem"
   }
 });
 
@@ -61,7 +71,7 @@ function MovieDetails(props) {
     };
   }, [id]);
   return (
-    <main>
+    <main className={classes.mainContainer}>
       <Link to={"/"}>
         <ArrowBack className={classes.backArrow} />
       </Link>
@@ -81,7 +91,7 @@ function MovieDetails(props) {
           image={movie.poster_path}
           duration={movie.runtime}
         />
-        <div className={classes.overview}>
+        <div className={classes.overviewContainer}>
           <Typography
             className={classes.overviewTitle}
             component="h3"
