@@ -7,7 +7,7 @@ import { Link } from "@reach/router";
 import logo from "../assets/tmdb_logo.svg";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import backgroundImage from "../assets/tmdb_background_new.jpg";
+import backgroundImage from "../assets/tmdb_background_trans.png";
 
 const styles = theme => ({
   appBar: {
