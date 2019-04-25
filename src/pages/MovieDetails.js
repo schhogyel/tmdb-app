@@ -37,7 +37,14 @@ const styles = theme => ({
       padding: "20px"
     }
   },
+  overviewTitle: {
+    fontFamily: "'Montserrat', sans-serif",
+    color: "#E3F4FC",
+    fontWeight: "600",
+    fontSize: "1.5rem"
+  },
   overviewDescription: {
+    fontFmaily: "'Roboto', sans-serif",
     color: "#B8D8E6",
     textAlign: "left"
   }
@@ -74,9 +81,19 @@ function MovieDetails(props) {
           image={movie.poster_path}
           duration={movie.runtime}
         />
-        <Typography className={classes.overviewDescription} component="p">
-          {movie.overview}
-        </Typography>
+        <div className={classes.overview}>
+          <Typography
+            className={classes.overviewTitle}
+            component="h3"
+            align="left"
+            gutterBottom
+          >
+            Overview
+          </Typography>
+          <Typography className={classes.overviewDescription} component="p">
+            {movie.overview}
+          </Typography>
+        </div>
       </div>
     </main>
   );
