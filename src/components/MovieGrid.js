@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 import MovieCard from "./MovieCard";
 import { getRatingColor } from "../utils";
-import { convertToPercent } from "../utils";
+import { convertToPercent, formatDate } from "../utils";
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -43,7 +43,13 @@ const styles = theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing.unit * 6
-  }
+  },
+  title: {
+    color: "#E6F7FF",
+    paddingTop: "10px",
+    fontSize: "1.15rem"
+  },
+  yearText: { color: "#A1D1E6", fontSize: "1rem" }
 });
 
 function MovieGrid({ classes, title, movieList }) {
@@ -70,12 +76,21 @@ function MovieGrid({ classes, title, movieList }) {
                 <MovieCard
                   id={movie.id}
                   source={movie.poster_path}
-                  title={movie.title}
-                  releaseDate={movie.release_date}
                   vote={movie.vote_average}
                 />
               </Badge>
             </Link>
+            <Typography
+              className={classes.title}
+              gutterBottom
+              variant="subtitle1"
+              align="left"
+            >
+              {movie.title}
+            </Typography>
+            <Typography className={classes.yearText} component="p" align="left">
+              {formatDate(movie.release_date)}
+            </Typography>
           </Grid>
         ))}
       </Grid>

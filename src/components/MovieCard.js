@@ -39,7 +39,7 @@ function MovieCard(props) {
         </CardActionArea>
       </Card>
 
-      <Typography
+      {/* <Typography
         className={classes.title}
         gutterBottom
         variant="subtitle1"
@@ -49,7 +49,7 @@ function MovieCard(props) {
       </Typography>
       <Typography className={classes.yearText} component="p" align="left">
         {formatDate(props.releaseDate)}
-      </Typography>
+      </Typography> */}
     </div>
   );
 }
