@@ -22,6 +22,9 @@ const styles = theme => ({
     [theme.breakpoints.up("md")]: {
       padding: `${theme.spacing.unit * 4}px 0`
     }
+  },
+  loader: {
+    color: "#fff"
   }
 });
 
@@ -33,7 +36,11 @@ function MovieBrowser(props) {
 
   useEffect(() => {
     let abort = false;
-    fetchMovies(abort).then(response => setPopularMovies(response));
+    setLoading(true);
+    fetchMovies(abort).then(response => {
+      setPopularMovies(response);
+      setLoading(false);
+    });
     return () => {
       abort = true;
     };
@@ -62,7 +69,11 @@ function MovieBrowser(props) {
       <Header handleSubmit={handleSubmit} />
       <main>
         <div className={classNames(classes.layout, classes.cardGrid)}>
-          {renderGrid()}
+          {loading ? (
+            <h1 className={classes.loader}> ...loading</h1>
+          ) : (
+            renderGrid()
+          )}
         </div>
       </main>
       <footer />
