@@ -4,9 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-
-import { formatDate } from "../utils/formatDate";
 
 const styles = {
   title: {
@@ -30,26 +27,14 @@ function MovieCard(props) {
         <CardActionArea>
           <CardMedia
             component="img"
-            alt="Contemplative Reptile"
+            alt={props.title}
             className={classes.media}
             height="140"
             image={`https://image.tmdb.org/t/p/w500/${props.source}`}
-            title="Contemplative Reptile"
+            title={props.title}
           />
         </CardActionArea>
       </Card>
-
-      {/* <Typography
-        className={classes.title}
-        gutterBottom
-        variant="subtitle1"
-        align="left"
-      >
-        {props.title}
-      </Typography>
-      <Typography className={classes.yearText} component="p" align="left">
-        {formatDate(props.releaseDate)}
-      </Typography> */}
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { withStyles } from "@material-ui/core/styles";
+import { Link } from "@reach/router";
+
 import logo from "../assets/tmdb_logo.svg";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
@@ -80,13 +82,16 @@ function Header(props) {
   return (
     <AppBar position="static" className={classes.appBar}>
       <div className={classes.logo}>
-        <img
-          src={logo}
-          className="App-logo"
-          alt="logo"
-          width="130"
-          height="116"
-        />
+        <Link to={"/"}>
+          {" "}
+          <img
+            src={logo}
+            className="App-logo"
+            alt="logo"
+            width="130"
+            height="116"
+          />
+        </Link>
       </div>
       <Toolbar className={classes.toolbar}>
         <div className={classes.search}>

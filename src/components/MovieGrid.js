@@ -27,8 +27,11 @@ const styles = theme => ({
   gridTitle: {
     fontFamily: "'Montserrat', sans- serif",
     color: "#E3F4FC",
-    fontSize: "2.5rem",
-    fontWeight: "600"
+    fontSize: "1.5rem",
+    fontWeight: "600",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "2.5rem"
+    }
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
@@ -75,6 +78,7 @@ function MovieGrid({ classes, title, movieList }) {
               >
                 <MovieCard
                   id={movie.id}
+                  title={movie.title}
                   source={movie.poster_path}
                   vote={movie.vote_average}
                 />

@@ -24,6 +24,13 @@ const theme = createMuiTheme({
   },
   background: {
     default: "rgb(7, 32, 39)"
+  },
+  overrides: {
+    MuiPaper: {
+      rounded: {
+        borderRadius: "12px"
+      }
+    }
   }
 });
 
