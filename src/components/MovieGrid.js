@@ -73,7 +73,7 @@ const styles = theme => ({
   }
 });
 
-function MovieGrid({ classes, title, movieList }) {
+export function MovieGrid({ classes, title, movieList }) {
   return (
     <React.Fragment>
       <Typography

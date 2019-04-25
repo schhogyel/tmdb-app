@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 });
 
-function MovieBrowser(props) {
+export function MovieBrowser(props) {
   const { classes } = props;
   const [popularMovies, setPopularMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);

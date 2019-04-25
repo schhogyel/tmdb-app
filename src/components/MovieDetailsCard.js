@@ -61,7 +61,7 @@ const styles = theme => ({
   }
 });
 
-function MovieDetailsCard(props) {
+export function MovieDetailsCard(props) {
   const { classes, title, year, score, image, duration } = props;
   return (
     <div className={classes.cardContainer}>

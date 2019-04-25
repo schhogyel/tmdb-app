@@ -60,7 +60,7 @@ const styles = theme => ({
   }
 });
 
-function MovieDetails(props) {
+export function MovieDetails(props) {
   const { id, classes } = props;
   const [movie, setMovie] = React.useState({});
   React.useEffect(() => {

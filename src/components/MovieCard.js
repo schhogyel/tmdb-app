@@ -23,7 +23,7 @@ const styles = theme => ({
   }
 });
 
-function MovieCard(props) {
+export function MovieCard(props) {
   const { classes } = props;
   return (
     <div className={classes.card}>

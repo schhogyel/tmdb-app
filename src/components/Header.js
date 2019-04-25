@@ -92,7 +92,7 @@ const styles = theme => ({
   }
 });
 
-function Header(props) {
+export function Header(props) {
   const { classes } = props;
   const inputEl = useRef(null);
 
@@ -100,7 +100,6 @@ function Header(props) {
     <AppBar position="static" className={classes.appBar}>
       <div className={classes.logo}>
         <Link to={"/"}>
-          {" "}
           <img src={logo} className={classes.appLogo} alt="logo" />
         </Link>
       </div>
