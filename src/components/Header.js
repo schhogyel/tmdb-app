@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { withStyles } from "@material-ui/core/styles";
@@ -75,6 +75,7 @@ const styles = theme => ({
 
 function Header(props) {
   const { classes } = props;
+  const inputEl = useRef(null);
 
   return (
     <AppBar position="static" className={classes.appBar}>
@@ -89,13 +90,16 @@ function Header(props) {
       </div>
       <Toolbar className={classes.toolbar}>
         <div className={classes.search}>
-          <InputBase
-            placeholder="Search"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
-            }}
-          />
+          <form onSubmit={e => props.handleSubmit(e, inputEl)}>
+            <InputBase
+              inputRef={inputEl}
+              placeholder="Search"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+            />
+          </form>
           <div className={classes.searchIconContainer}>
             <SearchIcon className={classes.searchIcon} />
           </div>

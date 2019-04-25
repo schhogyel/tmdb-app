@@ -7,7 +7,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
 import { formatDate } from "../utils/formatDate";
-import { Link } from "@material-ui/core";
 
 const styles = {
   title: {
@@ -24,7 +23,7 @@ const styles = {
 };
 
 function MovieCard(props) {
-  const { classes, id } = props;
+  const { classes } = props;
   return (
     <div className={classes.card}>
       <Card raised>

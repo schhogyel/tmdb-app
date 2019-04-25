@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import Badge from "@material-ui/core/Badge";
 
-import { fetchMovies } from "../api/fetchMovies";
-import MovieCard from "../components/MovieCard";
+import { fetchMovies, searchMovie } from "../api";
 import Header from "../components/Header.js";
-import { getRatingColor } from "../utils";
-import { convertToPercent } from "../utils";
-import { Link } from "@reach/router";
+import MovieGrid from "../components/MovieGrid";
 
 const styles = theme => ({
-  appBar: {
-    position: "relative"
-  },
   layout: {
     width: "auto",
     marginLeft: theme.spacing.unit * 3,
@@ -29,17 +20,6 @@ const styles = theme => ({
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
-  },
-  badge: {
-    padding: "15px",
-    fontSize: "1.1rem",
-    right: "90%",
-    top: "4%",
-    transform: "translate(100%, 0%)"
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6
   }
 });
 
@@ -55,34 +35,18 @@ function MovieBrowser(props) {
     };
   }, []);
 
+  const handleSubmit = (e, ref) => {
+    e.preventDefault();
+    const query = ref.current.value;
+    searchMovie(query);
+  };
+
   return (
     <React.Fragment>
-      <Header />
-
+      <Header handleSubmit={handleSubmit} />
       <main>
         <div className={classNames(classes.layout, classes.cardGrid)}>
-          <Grid container spacing={40}>
-            {popularMovies.map(movie => (
-              <Grid item key={movie.id} xs={6} sm={6} md={4} lg={3}>
-                <Link to={`/details/${movie.id}`}>
-                  <Badge
-                    badgeContent={convertToPercent(movie.vote_average)}
-                    color={getRatingColor(movie.vote_average)}
-                    classes={{ badge: classes.badge }}
-                    component={"div"}
-                  >
-                    <MovieCard
-                      id={movie.id}
-                      source={movie.poster_path}
-                      title={movie.title}
-                      releaseDate={movie.release_date}
-                      vote={movie.vote_average}
-                    />
-                  </Badge>
-                </Link>
-              </Grid>
-            ))}
-          </Grid>
+          <MovieGrid title={"Popular Movies"} movieList={popularMovies} />
         </div>
       </main>
       <footer />

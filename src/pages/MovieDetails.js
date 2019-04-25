@@ -1,14 +1,12 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import { ArrowBack } from "@material-ui/icons";
 import { Link } from "@reach/router";
 
 import MovieDetailsCard from "../components/MovieDetailsCard";
+import Typography from "@material-ui/core/Typography";
 
 import { fetchMovie } from "../api";
 
@@ -20,7 +18,7 @@ const styles = theme => ({
   },
   image: {
     width: "100%",
-    height: "100%"
+    objectFit: "cover"
   },
   backArrow: {
     position: "absolute",
@@ -28,6 +26,15 @@ const styles = theme => ({
     width: "2.5rem",
     height: "2.5rem",
     color: "#fff"
+  },
+  detailsContainer: {
+    maxWidth: "1200px",
+    margin: "auto",
+    padding: "10px"
+  },
+  overviewDescription: {
+    color: "#B8D8E6",
+    textAlign: "left"
   }
 });
 
@@ -54,14 +61,18 @@ function MovieDetails(props) {
           alt="poster"
         />
       </div>
-      <MovieDetailsCard
-        title={movie.title}
-        year={movie.release_date}
-        score={movie.vote_average}
-        image={movie.poster_path}
-        duration={movie.runtime}
-      />
-      <div>{movie.overview}</div>
+      <div className={classes.detailsContainer}>
+        <MovieDetailsCard
+          title={movie.title}
+          year={movie.release_date}
+          score={movie.vote_average}
+          image={movie.poster_path}
+          duration={movie.runtime}
+        />
+        <Typography className={classes.overviewDescription} component="p">
+          {movie.overview}
+        </Typography>
+      </div>
     </main>
   );
 }
