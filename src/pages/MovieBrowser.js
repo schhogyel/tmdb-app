@@ -26,6 +26,8 @@ const styles = theme => ({
 function MovieBrowser(props) {
   const { classes } = props;
   const [popularMovies, setPopularMovies] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let abort = false;
@@ -38,7 +40,11 @@ function MovieBrowser(props) {
   const handleSubmit = (e, ref) => {
     e.preventDefault();
     const query = ref.current.value;
-    searchMovie(query);
+    setLoading(true);
+    searchMovie(query).then(response => {
+      setSearchResults(response);
+      setLoading(false);
+    });
   };
 
   return (
@@ -46,6 +52,9 @@ function MovieBrowser(props) {
       <Header handleSubmit={handleSubmit} />
       <main>
         <div className={classNames(classes.layout, classes.cardGrid)}>
+          {searchResults && searchResults.length && (
+            <MovieGrid title={"Search Results"} movieList={searchResults} />
+          )}
           <MovieGrid title={"Popular Movies"} movieList={popularMovies} />
         </div>
       </main>

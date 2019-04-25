@@ -11,7 +11,7 @@ async function searchMovie(query, abort = false) {
     let results;
     console.log("Search Response", response);
     if (response.data) {
-      results = response.data;
+      results = response.data.results;
     } else {
       results = [];
     }
