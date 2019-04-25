@@ -12,6 +12,12 @@ const styles = theme => ({
     display: "flex",
     paddingBottom: "40px"
   },
+  cardWrapper: {
+    display: "block",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex"
+    }
+  },
   card: {
     marginTop: "-80px",
     maxWidth: 345,
@@ -59,17 +65,20 @@ function MovieDetailsCard(props) {
   const { classes, title, year, score, image, duration } = props;
   return (
     <div className={classes.cardContainer}>
-      <Card className={classes.card} raised>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            className={classes.media}
-            image={`https://image.tmdb.org/t/p/w500/${image}`}
-            title="Contemplative Reptile"
-          />
-        </CardActionArea>
-      </Card>
+      <div className={classes.cardWrapper}>
+        <Card className={classes.card} raised>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt={title}
+              className={classes.media}
+              image={`https://image.tmdb.org/t/p/w500/${image}`}
+              title={title}
+            />
+          </CardActionArea>
+        </Card>
+      </div>
+
       <div className={classes.infoContainer}>
         <Typography
           className={classes.title}

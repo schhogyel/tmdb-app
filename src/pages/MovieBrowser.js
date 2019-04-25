@@ -49,15 +49,20 @@ function MovieBrowser(props) {
     });
   };
 
+  const renderGrid = () => {
+    if (searchResults && searchResults.length) {
+      return <MovieGrid title={"Search Results"} movieList={searchResults} />;
+    } else {
+      return <MovieGrid title={"Popular Movies"} movieList={popularMovies} />;
+    }
+  };
+
   return (
     <React.Fragment>
       <Header handleSubmit={handleSubmit} />
       <main>
         <div className={classNames(classes.layout, classes.cardGrid)}>
-          {searchResults && searchResults.length && (
-            <MovieGrid title={"Search Results"} movieList={searchResults} />
-          )}
-          <MovieGrid title={"Popular Movies"} movieList={popularMovies} />
+          {renderGrid()}
         </div>
       </main>
       <footer />
